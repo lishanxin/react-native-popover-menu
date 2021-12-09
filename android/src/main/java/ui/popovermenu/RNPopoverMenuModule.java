@@ -75,6 +75,8 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
     int menuWidth = props.getInt("menuWidth");
     int rowHeight = props.getInt("rowHeight");
 
+    String iconPosition = props.getString("iconPosition");
+
     final ReadableArray menus = props.getArray("menus");
 
     final MaterialPopupMenuBuilder popupMenuBuilder = new MaterialPopupMenuBuilder();
@@ -117,7 +119,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
                     public Object invoke(Object o) {
                       LinearLayout layout = (LinearLayout) o;
 
-                      AppCompatImageView imageView = (AppCompatImageView) layout.findViewById(R.id.mpm_popup_menu_item_icon);
+                      AppCompatImageView imageView = (AppCompatImageView) layout.findViewById(iconPosition.equals("right") ? R.id.mpm_popup_menu_item_nested_icon: R.id.mpm_popup_menu_item_icon);
                       if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                           imageView.setImageTintMode(PorterDuff.Mode.DST);
                       }

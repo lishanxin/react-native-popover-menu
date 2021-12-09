@@ -38,6 +38,8 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     
     NSArray *menus = [props objectForKey: @"menus"];
 
+    NSString *iconPosition = [props objectForKey: @"iconPosition"];
+    NSNumber *allowShowArrow = [props objectForKey: @"allowShowArrow"]; 
     NSMutableArray *menuTitles = [[NSMutableArray alloc] init];
     NSMutableArray *menuIcons = [[NSMutableArray alloc] init];
     
@@ -115,6 +117,8 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     configuration.shadowRadius = [shadowRadius longValue];
     configuration.shadowOffsetX = [shadowOffsetX longValue];
     configuration.shadowOffsetY = [shadowOffsetY longValue];
+    configuration.iconPosition = iconPosition;
+    configuration.allowShowArrow = [allowShowArrow boolValue];
 
 //    configuration.textAlignment = ...
 //    configuration.ignoreImageOriginalColor = ...;// set 'ignoreImageOriginalColor' to YES, images color will be same as textColor

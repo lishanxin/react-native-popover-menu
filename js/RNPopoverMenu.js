@@ -32,7 +32,9 @@ class Popover extends PureComponent {
     shadowOpacity: PropTypes.number,
     shadowRadius: PropTypes.number,
     shadowOffsetX: PropTypes.number,
-    shadowOffsetY: PropTypes.number
+    shadowOffsetY: PropTypes.number,
+    iconPosition: PropTypes.string, // 'left' | 'right'
+    allowShowArrow:PropTypes.bool
   };
 
   static defaultProps = {
@@ -55,7 +57,9 @@ class Popover extends PureComponent {
     shadowOpacity: 0,
     shadowRadius: 5,
     shadowOffsetX: 0,
-    shadowOffsetY: 2
+    shadowOffsetY: 2,
+    iconPosition:'left',
+    allowShowArrow: false,
   };
 
   static Show(ref, props) {
@@ -163,7 +167,9 @@ class Popover extends PureComponent {
         shadowRadius: this.props.shadowRadius,
         shadowOffsetX: this.props.shadowOffsetX,
         shadowOffsetY: this.props.shadowOffsetY,
-        onDone: this.props.onDone
+        onDone: this.props.onDone,
+        iconPosition: this.props.iconPosition,
+        allowShowArrow: this.props.allowShowArrow
       });
     }
   }
